@@ -1,14 +1,14 @@
-# 🐱 Zylon - Das Abenteuer der Goldenen Milch
+# Zylon - Das Abenteuer der Goldenen Milch
 
 Ein Python Text-RPG über ein mutiges Kätzchen auf der Suche nach der legendären Goldenen Milch.
 
-## 📖 Story
+## Story
 
 In der Welt von Zylon existiert eine Legende: Die Goldene Milch. Wer sie trinkt, schnurrt für immer glücklich. 
 
 Du spielst ein junges Kätzchen aus dem Dorf Sonnenhain, das sich aufmacht die Goldene Zitadelle zu finden und die Milch zu erobern. Auf dem Weg warten Schleime, Goblins, Fledermäuse und ein sehr müder Drache. Und ganz am Ende... Der Chonk.
 
-## ✨ Features
+## Features
 
 - **Kampfsystem** mit kritischen Treffern und Ausweichen
 - **Levelsystem** - Werde stärker und erreiche Level 10
@@ -19,7 +19,7 @@ Du spielst ein junges Kätzchen aus dem Dorf Sonnenhain, das sich aufmacht die G
 - **Endgegner** - Der legendäre Chonk bewacht die Goldene Milch
 - **3 Schwierigkeitsgrade**
 
-## 🎮 Installation & Start
+## Installation & Start
 
 ```bash
 # Repository klonen
@@ -32,18 +32,18 @@ python zylon.py
 
 **Voraussetzungen:** Python 3.10+
 
-## 🕹️ Steuerung
+## Steuerung
 
 Das Spiel wird vollständig über Zahleneingaben gesteuert. Folge einfach den Menü-Anweisungen!
 
-## 🛠️ Technisches
+## Technisches
 
 - Sprache: Python 3
 - Bibliotheken: `random`, `json`, `os` (Standard-Bibliotheken)
 - Speicherformat: JSON
 - Code-Zeilen: ~400
 
-## 📚 Was ich gelernt habe
+## Was ich gelernt habe
 
 Dieses Projekt war mein erstes eigenständiges Python-Projekt. Dabei habe ich gelernt:
 
@@ -53,10 +53,10 @@ Dieses Projekt war mein erstes eigenständiges Python-Projekt. Dabei habe ich ge
 - Dateiverwaltung (JSON speichern/laden)
 - Spielbalancing und Progression-Design
 
-## 👤 Autor
+## Autor
 
 Entwickelt von SUnnyShiro1602 als Lernprojekt für die Bewerbung als Fachinformatiker Anwendungsentwicklung.
 
-## 📄 Lizenz
+## Lizenz
 
 Dieses Projekt ist frei verfügbar für Bildungszwecke.
