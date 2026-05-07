@@ -24,6 +24,7 @@ level_thresholds = {
 }
 
 monsters = {
+    # DUNKLER WALD (Level 1-3)
     "Schleim": {
         "lifepoints": (5, 10),
         "damage": (1, 5),
@@ -34,15 +35,41 @@ monsters = {
         "damage": (5, 10),
         "lore": "Ein Goblin springt aus dem Gebüsch!\nEr riecht nach alten Socken."
     },
+
+    # VERFLUCHTE BERGE (Level 4-6)
     "Fledermaus": {
         "lifepoints": (15, 20),
         "damage": (10, 15),
         "lore": "Eine flattrige Fledermaus greift dich an.\nSie will wahrscheinlich dein Blut."
     },
+    "Wolf": {
+        "lifepoints": (15, 20),
+        "damage": (8, 14),
+        "lore": "Ein grauer Wolf knurrt dich an.\nSeine Augen leuchten im Dunkeln."
+    },
+
+    # WUESTE DER VERLORENEN (Level 7-9)
+    "Skorpion": {
+        "lifepoints": (20, 25),
+        "damage": (12, 18),
+        "lore": "Ein riesiger Skorpion kriecht aus dem Sand.\nSein Stachel tropft vor Gift."
+    },
     "Drache": {
         "lifepoints": (20, 25),
         "damage": (15, 20),
-        "lore": "Ein Drache landet vor dir und klingt wie ein Teenager im Stimmbruch. Er ist müde und hat eigentlich keinen Bock!"
+        "lore": "Ein Drache bewacht den Eingang. Er ist müde und hat eigentlich keinen Bock!"
+    },
+
+    # GRUSELIGER FRIEDHOF (Level 5 - Einmalig)
+    "Geist": {
+        "lifepoints": (18, 22),
+        "damage": (12, 18),
+        "lore": "Ein blasser Geist schwebt durch die Grabsteine.\nEr murmelt unverständliche Worte..."
+    },
+    "Skelett": {
+        "lifepoints": (15, 20),
+        "damage": (10, 16),
+        "lore": "Ein klapperndes Skelett erhebt sich aus dem Grab.\nDie Knochen rasseln bedrohlich."
     },
 }
 
@@ -124,18 +151,16 @@ einen Fisch und etwas Milch eingepackt und bist gegangen.
 
 Sonnenhain liegt hinter dir.
 Das große Abenteuer liegt vor dir.
-Und irgendwo tief in Zylon warten Schleime, Goblins,
-Fledermäuse und ein sehr, sehr müder Drache.
+Und irgendwo tief in Zylon warten Gefahren auf dich.
 
 Viel Erfolg, {name}.
-Du wirst es brauchen. 🐾
+Du wirst es brauchen.
 """)
             else:
                 print(f"Willkommen zurück, {name}")
 
             while keep_fighting:
                 bonus_damage = 0
-
 
                 if level == 10:
                     print("""
@@ -162,15 +187,33 @@ Gelangweilt, so als wärst du es nicht wert diese monströse Flauschigkeit anzus
                     print(f"Er hat {monster_lifepoints} Leben!")
 
                 else:
-                    # Normale Monster
-                    if difficulty == 1:
-                        weights = [70, 45, 25, 5]
-                    elif difficulty == 2:
-                        weights = [50, 25, 20, 15]
-                    else:
-                        weights = [5, 15, 30, 65]
+                    # Gebiet basierend auf Level bestimmen
+                    if level <= 3:
+                        # DUNKLER WALD
+                        print("\n=== Du kämpfst dich durch den Dunklen Wald ===")
+                        available_monsters = ["Schleim", "Goblin"]
 
-                    monster_name = random.choices(["Schleim", "Goblin", "Fledermaus", "Drache"], weights=weights)[0]
+                    elif level == 4 or level == 6:
+                        # VERFLUCHTE BERGE
+                        print("\n=== Du erklimmst die Verfluchten Berge ===")
+                        available_monsters = ["Fledermaus", "Wolf"]
+
+                    elif level == 5:
+                        # GRUSELIGER FRIEDHOF (Einmalig!)
+                        print("\n=== Du betrittst den gruseligen Friedhof ===")
+                        available_monsters = ["Geist", "Skelett"]
+
+                    elif 7 <= level <= 9:
+                        # WUESTE DER VERLORENEN
+                        print("\n=== Du durchquerst die Wüste der Verlorenen ===")
+                        available_monsters = ["Skorpion", "Drache"]
+
+                    else:
+                        # Fallback
+                        available_monsters = ["Schleim", "Goblin"]
+
+                    # Monster spawnen
+                    monster_name = random.choice(available_monsters)
                     lp_min, lp_max = monsters[monster_name]["lifepoints"]
 
                     if monster_name != "Schleim":
@@ -190,7 +233,6 @@ Gelangweilt, so als wärst du es nicht wert diese monströse Flauschigkeit anzus
 
                     print(monsters[monster_name]["lore"])
                     print(f"{monster_name} hat {monster_lifepoints} Leben!")
-
 
                 player_lifepoints = 30 + (level * 5) - (difficulty * 3)
                 print(f"{name} hat {player_lifepoints} Leben.")
@@ -231,7 +273,7 @@ Gelangweilt, so als wärst du es nicht wert diese monströse Flauschigkeit anzus
                                     # BOSS BESIEGT = SPIEL GEWONNEN!
                                     if monster_name == "Der Chonk":
                                         print(f"""
- {monster_name} seufzt und legt sich wieder hin.
+{monster_name} seufzt und legt sich wieder hin.
 
 "Du hast gewonnen... *gähn*
  Nimm die Milch und verschwinde.
@@ -246,7 +288,7 @@ Du nippst daran...
 {name} schnurrt.
 Für immer glücklich.
 
- ZYLON IST GERETTET! 
+ZYLON IST GERETTET!
 Du hast das Spiel gewonnen!
                                         """)
                                         keep_fighting = False
@@ -261,7 +303,7 @@ Du hast das Spiel gewonnen!
                                     if level < 10 and xp >= level_thresholds[level + 1]:
                                         level += 1
                                         print(f"""
- LEVEL UP! Du bist jetzt Level {level}! 
+LEVEL UP! Du bist jetzt Level {level}!
 {name} schnurrt stolz vor sich hin!
 """)
                                         if level < 10:
@@ -269,7 +311,7 @@ Du hast das Spiel gewonnen!
                                             xp_needed = next_level_xp - xp
                                             print(f"Bis Level {level + 1}: noch {xp_needed} XP")
                                         else:
-                                            print("🏆 MAX LEVEL erreicht! Die Goldene Zitadelle wartet!")
+                                            print("MAX LEVEL erreicht! Die Goldene Zitadelle wartet!")
 
                                     loot = random.choice(["Heiltrank", "Schwertsplitter"])
                                     inventory.append(loot)
@@ -422,7 +464,7 @@ Du hast das Spiel gewonnen!
                 xp_needed = next_level_xp - xp
                 print(f"Bis Level {level + 1}: noch {xp_needed} XP")
             else:
-                print("🏆 MAX LEVEL erreicht! Die Goldene Zitadelle wartet!")
+                print("MAX LEVEL erreicht! Die Goldene Zitadelle wartet!")
             print("--------------------------\n")
 
         case "5":
