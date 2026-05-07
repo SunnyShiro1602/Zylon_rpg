@@ -23,7 +23,7 @@ Du spielst ein junges Kätzchen aus dem Dorf Sonnenhain, das sich aufmacht die G
 
 ```bash
 # Repository klonen
-git clone https://github.com/SunnyShiro1602/zylon.git
+git clone https://github.com/SunnyShiro1602/zylon_rpg.git
 cd zylon
 
 # Spiel starten
