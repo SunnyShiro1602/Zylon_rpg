@@ -24,10 +24,10 @@ Du spielst ein junges Kätzchen aus dem Dorf Sonnenhain, das sich aufmacht die G
 ```bash
 # Repository klonen
 git clone https://github.com/SunnyShiro1602/zylon_rpg.git
-cd zylon
+cd zylon_rpg
 
 # Spiel starten
-python zylon.py
+python Mini_RPG.py
 ```
 
 **Voraussetzungen:** Python 3.10+
