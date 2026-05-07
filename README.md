@@ -27,7 +27,7 @@ git clone https://github.com/SunnyShiro1602/zylon_rpg.git
 cd zylon_rpg
 
 # Spiel starten
-python Mini_RPG.py
+python zylon.py
 ```
 
 **Voraussetzungen:** Python 3.10+
