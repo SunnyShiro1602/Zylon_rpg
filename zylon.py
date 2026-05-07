@@ -190,22 +190,36 @@ Gelangweilt, so als wärst du es nicht wert diese monströse Flauschigkeit anzus
                     # Gebiet basierend auf Level bestimmen
                     if level <= 3:
                         # DUNKLER WALD
-                        print("\n=== Du kämpfst dich durch den Dunklen Wald ===")
+                        print("\n=== Dunkler Wald ===")
+                        print(""" Der dunkle Wald ist dafür bekannt das seine Bäume so hoch und dicht wachsen,
+                         das es dort wie immer Nacht wirkt. In dem Wald gibt es kaum fröhliche Geräusche von 
+                         Vögeln oder anderen friedlichen Waldtieren. In diesem Wald leben Schleime und Goblins.
+                         Sei vorsichtig kleines Kätzchen.""")
                         available_monsters = ["Schleim", "Goblin"]
 
                     elif level == 4 or level == 6:
                         # VERFLUCHTE BERGE
-                        print("\n=== Du erklimmst die Verfluchten Berge ===")
+                        print("\n=== Verfluchten Berge ===")
+                        print(""" Dein Weg führt dich weiter zu den verfluchten Bergen. Aber warum trägt er diesen Namen?
+                         Tief in der Berglandschaft versteckt liegt der gruselige Friedhof. Niemand traut sich mehr dorthin
+                         und so konnten Fledermäuse und Wölfe sich frei vermehren und greifen jeden an der sich ihrem Gebiet nähert.""")
                         available_monsters = ["Fledermaus", "Wolf"]
 
                     elif level == 5:
                         # GRUSELIGER FRIEDHOF (Einmalig!)
-                        print("\n=== Du betrittst den gruseligen Friedhof ===")
+                        print("\n=== Der gruseligen Friedhof ===")
+                        print(""" Du hast die Mitte der Berge erreicht und vor dir liegt der Friedhof. Eine alte Hexe hat ihn damals verflucht,
+                         Seitdem leben dort verlorene Seelen als Geister und erschrecken jeden der es wagt diesen Friedhof zu überqueren.
+                         Manchmal erscheinen auch Skelette die auf der suche nach neuen Knochen die Reisenden angreifen.""")
                         available_monsters = ["Geist", "Skelett"]
 
                     elif 7 <= level <= 9:
                         # WUESTE DER VERLORENEN
-                        print("\n=== Du durchquerst die Wüste der Verlorenen ===")
+                        print("\n=== die Wüste der Verlorenen ===")
+                        print(""" Du bist nun kurz vor deinem Ziel. Vor dir erstreckt sich die Wüste der Verlorenen. Viele sind in der sengenden 
+                         Hitze verloren gegangen und gestorben. Doch du, kleiner Held, scheinst mutig genug zu sein und 
+                         wagst dich durch die Wüste. Hier werden dir Skorpione und Drachen begegnen. Achte auf deine
+                         Lieblingsmaus und deine Milch. Bald bist du dem Ziel nahe.""")
                         available_monsters = ["Skorpion", "Drache"]
 
                     else:
